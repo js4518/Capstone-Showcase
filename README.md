@@ -1,6 +1,9 @@
 # 캡스톤디자인I / 유니티를 이용한 2D 로그라이트 액션 게임 개발 (진행중)
 
+![image](https://github.com/user-attachments/assets/c6880d3f-7e64-4a40-8569-4d373d9fde7b)
+
 Portfolio / 내부 에셋 저작권으로 인한 파일 제외
+
 프로젝트 진행 기간 : 2025.03 ~ 2025.06(예정)
 
 # 1. 프로젝트 개요
