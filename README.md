@@ -102,7 +102,7 @@
 
 ### 🔹 GameManager (Singleton)
 
-<img src="https://github.com/user-attachments/assets/752774b6-7d92-46b8-8553-f878dd6299a9" width="30%">
+<img src="https://github.com/user-attachments/assets/752774b6-7d92-46b8-8553-f878dd6299a9" width="35%">
 
 - **전역 데이터 및 매니저 통합 관리**  
 - 씬 로드시의 초기화 순서 제어로 의존성 문제 해결
@@ -114,8 +114,8 @@
 
 ### 🔹 PoolManager
 
-<img src="https://github.com/user-attachments/assets/018020fd-d705-43a8-923d-1909c4c2fd35" width="15%">
-<img src="https://github.com/user-attachments/assets/20153cc3-92e6-4399-82f6-8ea1e3686145" width="30%">
+<img src="https://github.com/user-attachments/assets/018020fd-d705-43a8-923d-1909c4c2fd35" width="20%">
+<img src="https://github.com/user-attachments/assets/20153cc3-92e6-4399-82f6-8ea1e3686145" width="40%">
 
 - **투사체/이펙트에 대한 오브젝트 풀링 구현**  
 - 오브젝트 재활용을 통해, 동적 메모리 처리를 줄여 성능 개선
