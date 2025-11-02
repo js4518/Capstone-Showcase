@@ -2,7 +2,7 @@
 
 <img src="https://github.com/user-attachments/assets/2ecc832f-2e67-4414-80a4-abcab8d6ef33" width="75%">
 
-<img src="https://github.com/user-attachments/assets/298eccf7-b442-477a-b031-0730cba74608" width="60%">
+<img src="https://github.com/user-attachments/assets/298eccf7-b442-477a-b031-0730cba74608" width="65%">
 
 
 **📆 진행 기간:** 2025.03 ~ 2025.06  
