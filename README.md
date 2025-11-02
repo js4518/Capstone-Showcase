@@ -47,6 +47,16 @@
 - **ScriptableObject 기반 관리**로 확장성 확보  
   (무기, 스킬, 장신구, 적, 해킹 등)
 
+## 사용 기술 스택
+
+| 분류 | 내용 |
+|------|------|
+| Engine | Unity 6 (6000.0.43f1) |
+| Language | C# |
+| Version Control | Git / GitHub |
+| Build Target | Windows (.exe) -> STOVE 스토어 및 itch.io 배포 |
+| 협업 툴 | Trello, Discord |
+
 ## 프로젝트 세부사항
 
 ### 역할 분담
