@@ -1,10 +1,8 @@
 ## 캡스톤디자인I / 사이버펑크+디스토피아 로그라이트 액션 게임 개발
 
-![LOGO](https://github.com/user-attachments/assets/2ecc832f-2e67-4414-80a4-abcab8d6ef33)
+<img src="https://github.com/user-attachments/assets/2ecc832f-2e67-4414-80a4-abcab8d6ef33" width="75%">
 
-![Fight](https://github.com/user-attachments/assets/ba218ed6-a561-4169-8db0-66ddc1a8bf83)
-
-![9 -ezgif com-video-to-gif-converter (1)](https://github.com/user-attachments/assets/298eccf7-b442-477a-b031-0730cba74608)
+<img src="https://github.com/user-attachments/assets/298eccf7-b442-477a-b031-0730cba74608" width="60%">
 
 
 **📆 진행 기간:** 2025.03 ~ 2025.06  
@@ -72,12 +70,12 @@
 
 ### RoomManager
 
-![image](https://github.com/user-attachments/assets/67c96f93-aac0-4d80-88e4-098ac0edb883)
+<img src="https://github.com/user-attachments/assets/67c96f93-aac0-4d80-88e4-098ac0edb883">
 
-![image](https://github.com/user-attachments/assets/a5d04a4f-f496-4978-bdb5-98f14e53c7bb)
-![image](https://github.com/user-attachments/assets/6816eb3d-b77b-4aa2-b6c6-aa2e9088d256)
+<img src="https://github.com/user-attachments/assets/a5d04a4f-f496-4978-bdb5-98f14e53c7bb">
+<img src="https://github.com/user-attachments/assets/6816eb3d-b77b-4aa2-b6c6-aa2e9088d256">
 
-![맵이동](https://github.com/user-attachments/assets/96116942-7703-41fc-bd38-b06782f90142)
+<img src="https://github.com/user-attachments/assets/96116942-7703-41fc-bd38-b06782f90142" width="60%">
 
 - 룸 프리팹 구조 설계 (Prefab Variant를 이용한 다중 상속 구조)  
 - 룸 이동, 포탈, 선택 UI 구현  
@@ -85,10 +83,10 @@
 
 ### EnemyManager
 
-![image](https://github.com/user-attachments/assets/079e1fc8-e08a-49e8-9dde-9a5716dec923)
-![image](https://github.com/user-attachments/assets/1f827d01-b3c4-4c18-94a2-c268fa498b3a)
+<img src="https://github.com/user-attachments/assets/079e1fc8-e08a-49e8-9dde-9a5716dec923" width="30%">
+<img src="https://github.com/user-attachments/assets/572bbaf9-b658-479d-abc1-f8d78777c35d" width="50%">
 
-![image](https://github.com/user-attachments/assets/572bbaf9-b658-479d-abc1-f8d78777c35d)
+<img src="https://github.com/user-attachments/assets/1f827d01-b3c4-4c18-94a2-c268fa498b3a">
 
 - ScriptableObject 기반 에너미 데이터 구조화  
 - 에너미 패턴 구현 (돌진, 점프, 자폭, 은신형 원거리)  
@@ -96,30 +94,30 @@
 
 ### GameManager (Singleton)
 
-![image](https://github.com/user-attachments/assets/752774b6-7d92-46b8-8553-f878dd6299a9)
+<img src="https://github.com/user-attachments/assets/752774b6-7d92-46b8-8553-f878dd6299a9" width="30%">
 
 - 전역 데이터 및 매니저 통합 관리  
 - 씬 로드시의 초기화 순서 제어로 의존성 문제 해결
 
 ### PoolManager
 
-![image](https://github.com/user-attachments/assets/20153cc3-92e6-4399-82f6-8ea1e3686145)
+<img src="https://github.com/user-attachments/assets/20153cc3-92e6-4399-82f6-8ea1e3686145" width="30%">
 
 - 투사체, 이펙트 풀링 구조 구현  
 - 오브젝트 재활용으로 성능 개선
 
 ### UI Manager
 
-![image](https://github.com/user-attachments/assets/9ab9dd50-08ab-44f2-9332-53b9b4f5a71e)
-![image](https://github.com/user-attachments/assets/88ce0b61-36e7-4474-ab06-1f9446513842)
+<img src="https://github.com/user-attachments/assets/9ab9dd50-08ab-44f2-9332-53b9b4f5a71e" width="30%">
+<img src="https://github.com/user-attachments/assets/88ce0b61-36e7-4474-ab06-1f9446513842" width="30%">
 
 - ScreenUI, WorldUI 관리 구조 구현
 - CanvasGroup을 통한 페이드 효과 구현 -> 룸/씬 이동 간 부드러운 화면 전환
 
 ### UI
 
-![image](https://github.com/user-attachments/assets/6a345298-225a-4b10-abc7-4389c089ffed)
-![image](https://github.com/user-attachments/assets/b6f0096a-aed7-44ee-8e64-ea7d0780437b)
+<img src="https://github.com/user-attachments/assets/6a345298-225a-4b10-abc7-4389c089ffed" width="60%">
+<img src="https://github.com/user-attachments/assets/b6f0096a-aed7-44ee-8e64-ea7d0780437b" width="35%">
 
 - 일시 정지, 설정 시스템 및 UI 구현
 - Time.unscaledDeltaTime 및 WaitForSecondsRealTime의 사용으로, Time.timescale 조정에 따른 UI 정지 문제 해결  
@@ -127,43 +125,37 @@
 
 ### SaveSystem, SaveData
 
-![image](https://github.com/user-attachments/assets/38174cc4-c7dc-48b6-94df-414cd67c1192)
-![image](https://github.com/user-attachments/assets/9744197b-9332-41b9-a56d-a20c04e2bd8e)
+<img src="https://github.com/user-attachments/assets/38174cc4-c7dc-48b6-94df-414cd67c1192" width="50%">
+<img src="https://github.com/user-attachments/assets/9744197b-9332-41b9-a56d-a20c04e2bd8e" width="50%">
 
 - JSON 직렬화 기반 게임 저장/로드 구현  
 - Scriptable Object 인스턴스를 직접 저장하지 않고, ID를 기반으로 데이터를 저장하여 오류 해결 
 
 ### SoundManager
 
-![image](https://github.com/user-attachments/assets/a3742ca2-8bdd-4ec9-8afc-956d93a571ff)
+<img src="https://github.com/user-attachments/assets/a3742ca2-8bdd-4ec9-8afc-956d93a571ff" width="50%">
 
 - AudioMixer 그룹(BGM/SFX)을 분리한 구조로 사운드 시스템 구현
 - 에너미, 이벤트 관련 사운드 적용
 
 ### 이벤트 상호작용 시스템
 
-![image](https://github.com/user-attachments/assets/03ec6242-1369-4b96-8955-3750f4b222af)
-
-![image](https://github.com/user-attachments/assets/ed0fa7ee-aab5-4e5c-b2bd-905c205876ba)
+<img src="https://github.com/user-attachments/assets/ed0fa7ee-aab5-4e5c-b2bd-905c205876ba" width="60%">
+<img src="https://github.com/user-attachments/assets/03ec6242-1369-4b96-8955-3750f4b222af" width="25%">
 
 - `IInteractable` 인터페이스 설계  
 - NPC, 오브젝트, 이벤트에 공통 적용
 
 ### 탐사 기지 시스템
 
-![ExploreBase](https://github.com/user-attachments/assets/136daef7-5b21-40c8-9d27-96e552512218)
+<img src="https://github.com/user-attachments/assets/136daef7-5b21-40c8-9d27-96e552512218" width="60%">
 
 - 탐사 전 관리: 월드 선택, 강화, 자원 확인 가능하게 구현  
 - 씬 이동시 GameManager(싱글톤)과 다른 매니저 컴포넌트(싱글톤 X) 간 연결 구조 재설정 구현
 
 ### 월드 디자인 및 제작
 
-![image](https://github.com/user-attachments/assets/9b6b485a-05c8-4097-9402-7027bf23311f)
-
-![image](https://github.com/user-attachments/assets/1d96046c-0dd2-4576-9b86-d51ff254d3c2)
-![image](https://github.com/user-attachments/assets/6dc4bebc-2ed6-4752-b954-30d0f8dcd560)
-![image](https://github.com/user-attachments/assets/b94e4e4b-6c3e-44ca-9d62-f05f9d5293ab)
+<img src="https://github.com/user-attachments/assets/9b6b485a-05c8-4097-9402-7027bf23311f" width="60%">
 
 - 1월드 제작 (Enemy/Reward/Event 룸 15개 제작)  
 - Y축 구조 및 적 조합 다양화
-
