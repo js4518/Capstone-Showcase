@@ -6,9 +6,6 @@
 
 ![9 -ezgif com-video-to-gif-converter (1)](https://github.com/user-attachments/assets/298eccf7-b442-477a-b031-0730cba74608)
 
-내부 에셋 저작권으로 인한 파일 제외
-
-직접 작성한 스크립트 중 일부만 업로드
 
 프로젝트 진행 기간 : **2025.03 ~ 2025.06**
 
