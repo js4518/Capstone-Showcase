@@ -49,11 +49,10 @@
 
 | 분류 | 내용 |
 |------|------|
-| Engine | Unity 6 (6000.0.43f1) |
-| Language | C# |
-| Version Control | Git / GitHub |
-| Build Target | Windows (.exe) -> STOVE 스토어 및 itch.io 배포 |
-| 협업 툴 | Trello, Discord |
+| **Engine** | Unity 6 (6000.0.43f1) |
+| **Version Control** | Git / GitHub |
+| **Build Target** | Windows (.exe) -> STOVE 스토어 및 itch.io 배포 |
+| **협업 툴** | Trello, Discord |
 
 ## 🔷 프로젝트 세부사항
 
