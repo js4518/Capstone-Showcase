@@ -5,13 +5,13 @@
 <img src="https://github.com/user-attachments/assets/298eccf7-b442-477a-b031-0730cba74608" width="65%">
 
 
-**📆 진행 기간:** 2025.03 ~ 2025.06  
+**📆 진행 기간 :** 2025.03 ~ 2025.06  
 
-**📘 위키:** [캡크래프트 프로젝트 위키](http://cscp2.sogang.ac.kr/CSE4186/index.php/%EC%BA%A1%ED%81%AC%EB%9E%98%ED%94%84%ED%8A%B8)  
+**📘 위키 :** [캡크래프트 프로젝트 위키](http://cscp2.sogang.ac.kr/CSE4186/index.php/%EC%BA%A1%ED%81%AC%EB%9E%98%ED%94%84%ED%8A%B8)  
 
-**🕹️ STOVE 스토어:** [https://store.onstove.com/ko/games/101515](https://store.onstove.com/ko/games/101515)  
+**🕹️ STOVE 스토어 :** [https://store.onstove.com/ko/games/101515](https://store.onstove.com/ko/games/101515)  
 
-**▶️ 전체 플레이 영상:** [https://youtu.be/UVl7yaMmQIA?si=dm9YSfIsRDznCu49](https://youtu.be/UVl7yaMmQIA?si=dm9YSfIsRDznCu49)
+**▶️ 전체 플레이 영상 :** [https://youtu.be/UVl7yaMmQIA?si=dm9YSfIsRDznCu49](https://youtu.be/UVl7yaMmQIA?si=dm9YSfIsRDznCu49)
 
 ## 🔷 개발 목표
 
