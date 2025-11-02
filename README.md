@@ -76,11 +76,12 @@
 <img src="https://github.com/user-attachments/assets/a5d04a4f-f496-4978-bdb5-98f14e53c7bb">
 <img src="https://github.com/user-attachments/assets/6816eb3d-b77b-4aa2-b6c6-aa2e9088d256">
 
-<img src="https://github.com/user-attachments/assets/96116942-7703-41fc-bd38-b06782f90142" width="60%">
+<img src="https://github.com/user-attachments/assets/6d928d5f-2625-4358-8910-7bc92f8c8dae" width="60%">
+
 
 - **룸 프리팹 구조 설계** (**Prefab Variant**를 이용한 다중 상속 구조)  
 - **룸 이동, 포탈, 선택 시스템 및 UI 구현**  
-- 룸 타입 : Enemy / Reward / Event  
+- Enemy / Reward / Event의 세가지 룸 타입 중, 지정된 확률에 따라 무작위로 선택지 제공  
 
 ### 🔹 EnemyManager
 
