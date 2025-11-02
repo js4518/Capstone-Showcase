@@ -82,7 +82,7 @@ STOVE 스토어 : https://store.onstove.com/ko/games/101515
 
 |이름	|개발 측면|	프로젝트 관리 측면|
 |------|---|---|
-|**송종서**|	에너미, 룸 시스템, 탐사 기지 시스템 등 설계/구현, 월드 디자인 및 제작|	팀장, 일정/위키 관리|
+|**송종서**|	**에너미, 룸 시스템, 탐사 기지 시스템 등 설계/구현, 월드 디자인 및 제작**|	**팀장, 일정/위키 관리**|
 |김택림|	플레이어 행동, 무기 및 스킬 시스템, 장신구 시스템, 보스 패턴 설계/구현|깃허브 관리|
 |최준혁|	해킹 시스템, 보스 시스템 설계/구현, 타이틀 디자인|발표, 멘토 컨택|
 |이송은|	자원, 인벤토리, 장비 강화, 상점 시스템 등 설계/구현, 애니메이션 적용|회의 관리|
@@ -152,20 +152,6 @@ RoomManager를 통해 플레이어가 룸 클리어시 등장하는 포탈에 �
 
 에너미 컴포넌트에서의 에너미 이동 처리와, Unity 자체의 중력/마찰 시스템 사이에 충돌이 발생하여 에너미가 계속 정지하는 문제가 발생했다. 따라서 에너미의 위치를 일정 시간마다 위쪽 방향으로 조금씩 이동시켜줬고, 지형 타일맵의 Collider material에서 마찰을 제거하였으며, 에너미가 바닥에 붙어있는 경우에만 중력을 적용하였더니 해결되었다.
 
-<h3>월드 디자인 및 제작</h3>
-
-![image](https://github.com/user-attachments/assets/9b6b485a-05c8-4097-9402-7027bf23311f)
-
-![image](https://github.com/user-attachments/assets/1d96046c-0dd2-4576-9b86-d51ff254d3c2)
-![image](https://github.com/user-attachments/assets/6dc4bebc-2ed6-4752-b954-30d0f8dcd560)
-![image](https://github.com/user-attachments/assets/b94e4e4b-6c3e-44ca-9d62-f05f9d5293ab)
-
-이번 데모 버전에 포함된 1월드(사막 월드)를 디자인하고 제작하였다. 에너미 룸/보상 룸/이벤트 룸 각 타입 당 8개/3개/4개의 룸을 제작하였다. 각 룸의 지형, 배경 요소 디자인, 에너미 스폰 위치 및 등장 종류 지정을 통해 플레이어가 다양한 룸 구조를 경험하며 재미를 느낄 수 있게 하였다. 또한, 보상 룸과 이벤트 룸에서 등장할 이벤트들을 구상하고 구현하였다.
-
-주요 이슈 및 해결 :
-
-룸의 구조가 비슷하게 반복되면, 플레이어가 지루함을 느낄 것이라는 생각이 들었다. 따라서 Y축과 관련된 요소(사다리, 언덕) 등을 많이 사용하였고, 등장하는 에너미의 종류를 룸의 구조에 따라 다채롭게 지정하였다.
-
 <h3>GameManager 제작 - 싱글톤 패턴 적용</h3>
 
 ![image](https://github.com/user-attachments/assets/752774b6-7d92-46b8-8553-f878dd6299a9)
@@ -182,11 +168,45 @@ GameManager는 씬이 처음 실행될 때(Awake() 함수) 자신의 인스턴�
 
 Unity의 기본적인 오브젝트 생성/제거 방식을 사용하면, 투사체와 같은 다수의 오브젝트를 생성/제거해야 하는 경우 overhead가 발생한다. 따라서 오브젝트 풀링을 적용한 PoolManager 컴포넌트를 정의하였다. PoolManager에서는 오브젝트를 제거해야 할 때, 실제로 제거하지 않고 비활성화 처리를 한다. 이후 오브젝트를 새로 생성해야 할 때, 해당 오브젝트와 같은 종류의 비활성화된 오브젝트를 가져와서 활성화하고 재사용한다. 이를 플레이어/에너미의 공격 투사체 생성에 적용하여 효율성을 향상시켰다.
 
-<h3>Parallax background 적용</h3>
+<h3>ScreenUI, WorldUI (Manager) 제작 – UI 구현 및 관리</h3>
 
-![image](https://github.com/user-attachments/assets/8192ffb6-2bdf-4c15-8212-8f4b3db54742)
+![image](https://github.com/user-attachments/assets/9ab9dd50-08ab-44f2-9332-53b9b4f5a71e)
+![image](https://github.com/user-attachments/assets/88ce0b61-36e7-4474-ab06-1f9446513842)
 
-게임의 배경을 여러 개의 분할된 이미지 레이어로 제작하여, 배경 이미지 위치가 플레이어의 이동에 따라 변화하는 정도를 각 레이어마다 다르게 하였다. 멀리 있는 배경은 느리게, 가까이 있는 배경은 빠르게 움직이게 하여 배경의 입체감과 생동감을 주었다.
+ScreenUI, WorldUI 컴포넌트를 정의하여, Screen Space-Overlay UI 및 World Space UI의 관리를 처리하였다. 게임 내에서 사용되는 무기/스킬/체력/월드 선택/룸 선택/일시정지/설정 등 UI를 구현하였고, 룸/씬 이동 간 부드러운 화면 전환을 위하여 코루틴을 이용한 페이드인/페이드아웃 효과를 적용하였다. 이를 적용하기 위해 UI의 visibility의 활성화/비활성화 처리 또한 구현하였다.
+
+주요 이슈 및 해결 :
+
+초기 UI 구조에서는 UI 오브젝트 자체를 활성화/비활성화하는 방식으로 visibility를 설정하였는데, 비활성화하니 해당 오브젝트의 다른 컴포넌트에 접근하는 때에 문제가 발생하였다. 이를 해결하기 위해, 기존 활성화/비활성화 방식을 각 UI 오브젝트에 CanvasGroup 컴포넌트를 추가하여 UI의 투명도 값을 조정하는 방식으로 변경하였다.
+
+<h3>일시정지, 설정 시스템 및 UI 구현</h3>
+
+![image](https://github.com/user-attachments/assets/6a345298-225a-4b10-abc7-4389c089ffed)
+![image](https://github.com/user-attachments/assets/b6f0096a-aed7-44ee-8e64-ea7d0780437b)
+
+게임 중 ESC 키를 눌러 게임을 일시 정지하고, 게임 저장/설정/탐사 포기(탐사 중일시)/게임 종료를 선택할 수 있게 구현하였다. 또한 설정 UI에서 배경음/효과음의 소리 크기를 각각 지정하고 저장할 수 있게 구현하였다.
+
+주요 이슈 및 해결 :
+
+처음에 게임의 Time.timescale(시간의 진행 속도를 지정하는 Unity의 변수, 0 <= value <= 1)을 0으로 변경하는 방식으로 일시정지를 구현하였는데, 이에 따라 동적으로 나타낸 UI(좌우로 펼쳐지는 애니메이션이 포함된 UI)의 코루틴 처리에서도 동작이 멈춰버리는 문제가 발생하였다. 따라서 timescale에 영향을 받아야 하는 대상과 그렇지 않은 대상을 구분하고, 그렇지 않은 대상에서는 Time.unscaledDeltaTime과 WaitForSecondsRealTime을 사용하여 Time.timescale에 영향을 받지 않고 실제 시간에 따라 작동할 수 있게 설정하여 해결하였다.
+
+<h3>SaveSystem, SaveData 제작 - 세이브/로드 시스템 및 세이브 데이터 저장 구조 구현</h3>
+
+![image](https://github.com/user-attachments/assets/38174cc4-c7dc-48b6-94df-414cd67c1192)
+![image](https://github.com/user-attachments/assets/9744197b-9332-41b9-a56d-a20c04e2bd8e)
+
+static 클래스인 SaveSystem를 정의하여 씬의 종류와 관계없이 작동하는 세이브/로드 시스템을 구현하였다. 저장 데이터를 구성하는 SaveData 클래스를 정의하였고, 이를 System.Serializable로 선언하여 클래스 인스턴스 자체가 Json 파일 형식으로 상호 전환될 수 있게 하였다. SaveData에서는 월드 탐색률/악성코드 추적도/보유 자원/장착 무기/장착 해킹 데이터를 저장하게 하였다. SaveSystem에서는 GameManager에서 저장이 필요한 데이터를 가져와서 SaveData의 인스턴스에 저장하고, 이 인스턴스를 Json string 형태로 변환한 뒤 이를 로컬 드라이브에 저장하게 하였다. 또한 저장 데이터의 로드가 필요한 경우 해당 파일을 다시 읽어와서 SaveData의 인스턴스에 읽어온 데이터들을 저장하고, 이를 GameManager에 넘겨줘서 GameManager가 필요한 데이터를 직접 가져갈 수 있게 구현하였다. (보유 무기, 장신구, 장비 강화 수치 등의 데이터 저장은 다른 팀원이 추가적으로 구현)
+
+주요 이슈 및 해결 :
+
+게임의 기존 데이터 구조에서는 장착 무기, 해킹 데이터를 Scriptable Object로 관리하였는데, SaveData에 Scriptable Object가 포함될 시 데이터의 직렬화가 올바르게 되지 않는 문제가 발생하였다. 원인은 Unity 내부에서 Scriptable Object를 처리하는 구조에 있었다. Unity에서는 Scriptable Object로 사전에 정의한 데이터를, 게임 실행시 인스턴스로 생성하여 게임 실행동안 유지한다. 따라서 이렇게 생성된 인스턴스를 SaveData에 포함하여 저장하면 임시 인스턴스 ID가 저장되었고, 게임 재실행 후 데이터를 로드하려고 하면 현재 존재하는 Scriptable Object의 인스턴스의 ID와 SaveData에 포함된 인스턴스의 ID가 일치하지 않아 로드에 실패하였다. 이러한 문제를 해결하기 위해 Scriptable Object를 직접 저장하지 않고 무기, 해킹 ID를 대신 저장하였으며, 구조적인 데이터를 저장해야 하는 경우 일반 클래스를 선언해서 사용하는 방식으로 대체하였다.
+
+<h3>SoundManager 제작 - 사운드 관리 및 재생 / 에너미 사운드 적용</h3>
+
+![image](https://github.com/user-attachments/assets/a3742ca2-8bdd-4ec9-8afc-956d93a571ff)
+
+SoundManager 컴포넌트를 정의하여 사운드 종류별로 분류하여 관리하고, 재생할 수 있게 구현하였다. 기본이 되는 AudioMixer의 하위 그룹으로 BGM(배경음) 그룹과 SFX(효과음) 그룹을 두고, 기존에 플레이어가 설정 시스템에서 지정한 소리 크기로 각 그룹의 소리 크기를 지정한 뒤 각 사운드를 재생할 수 있게 하였다. 이 구조를 통해 팀원들이 동일한 사운드 재생 방식을 적용하게 하며 게임의 모든 사운드를 관리하였다.
+또한 SoundManager를 이용하여 에너미 사운드/플레이어 피격 사운드/이벤트 사운드를 적용하였다. 에너미 피격/사망 시의 사운드는 공통으로 적용하였고, 에너미 종류별 인지/공격 상황에 대한 사운드를 적용하였다. 이벤트 사운드로는 긍정/부정적 이벤트 발생 시의 사운드를 각각 적용하였다. 이를 통해 플레이어가 더욱 생동감 있는 플레이 경험을 가질 수 있게 했다.
 
 <h3>상호작용(이벤트) 시스템 구현</h3>
 
@@ -206,38 +226,19 @@ Unity의 기본적인 오브젝트 생성/제거 방식을 사용하면, 투사�
 
 탐사 기지 씬과 탐사 씬간의 이동 시에 GameManager와 다른 Manager 컴포넌트들의 연결 관계가 사라져, 게임 시스템에 버그가 발생하는 문제가 생겼다. 싱글톤 패턴을 적용한 GameManager만 씬 이동시에 유지되고, 다른 컴포넌트들은 제거된 뒤 새 씬에서 새로 생성되는 것이 원인이였다. 따라서 씬 이동 시에 각 Manager 컴포넌트들이 자체적으로 GameManager에 자신을 등록하게 하는 방식으로 문제를 해결하였다.
 
-<h3>ScreenUI, WorldUI (Manager) 제작 – UI 구현 및 관리</h3>
+<h3>월드 디자인 및 제작</h3>
 
-![image](https://github.com/user-attachments/assets/9ab9dd50-08ab-44f2-9332-53b9b4f5a71e)
-![image](https://github.com/user-attachments/assets/88ce0b61-36e7-4474-ab06-1f9446513842)
+![image](https://github.com/user-attachments/assets/9b6b485a-05c8-4097-9402-7027bf23311f)
 
-ScreenUI, WorldUI 컴포넌트를 정의하여, Screen Space-Overlay UI 및 World Space UI의 관리를 처리하였다. 게임 내에서 사용되는 무기/스킬/체력/월드 선택/룸 선택/일시정지/설정 등 UI를 구현하였고, 룸/씬 이동 간 부드러운 화면 전환을 위하여 코루틴을 이용한 페이드인/페이드아웃 효과를 적용하였다. 이를 적용하기 위해 UI의 visibility의 활성화/비활성화 처리 또한 구현하였다.
+![image](https://github.com/user-attachments/assets/1d96046c-0dd2-4576-9b86-d51ff254d3c2)
+![image](https://github.com/user-attachments/assets/6dc4bebc-2ed6-4752-b954-30d0f8dcd560)
+![image](https://github.com/user-attachments/assets/b94e4e4b-6c3e-44ca-9d62-f05f9d5293ab)
 
-주요 이슈 및 해결 :
-
-초기 UI 구조에서는 UI 오브젝트 자체를 활성화/비활성화하는 방식으로 visibility를 설정하였는데, 비활성화하니 해당 오브젝트의 다른 컴포넌트에 접근하는 때에 문제가 발생하였다. 이를 해결하기 위해, 기존 활성화/비활성화 방식을 각 UI 오브젝트에 CanvasGroup 컴포넌트를 추가하여 UI의 투명도 값을 조정하는 방식으로 변경하였다.
-
-<h3>SaveSystem, SaveData 제작 - 세이브/로드 시스템 및 세이브 데이터 저장 구조 구현</h3>
-
-![image](https://github.com/user-attachments/assets/38174cc4-c7dc-48b6-94df-414cd67c1192)
-![image](https://github.com/user-attachments/assets/9744197b-9332-41b9-a56d-a20c04e2bd8e)
-
-static 클래스인 SaveSystem를 정의하여 씬의 종류와 관계없이 작동하는 세이브/로드 시스템을 구현하였다. 저장 데이터를 구성하는 SaveData 클래스를 정의하였고, 이를 System.Serializable로 선언하여 클래스 인스턴스 자체가 Json 파일 형식으로 상호 전환될 수 있게 하였다. SaveData에서는 월드 탐색률/악성코드 추적도/보유 자원/장착 무기/장착 해킹 데이터를 저장하게 하였다. SaveSystem에서는 GameManager에서 저장이 필요한 데이터를 가져와서 SaveData의 인스턴스에 저장하고, 이 인스턴스를 Json string 형태로 변환한 뒤 이를 로컬 드라이브에 저장하게 하였다. 또한 저장 데이터의 로드가 필요한 경우 해당 파일을 다시 읽어와서 SaveData의 인스턴스에 읽어온 데이터들을 저장하고, 이를 GameManager에 넘겨줘서 GameManager가 필요한 데이터를 직접 가져갈 수 있게 구현하였다. (보유 무기, 장신구, 장비 강화 수치 등의 데이터 저장은 다른 팀원이 추가적으로 구현)
+이번 데모 버전에 포함된 1월드(사막 월드)를 디자인하고 제작하였다. 에너미 룸/보상 룸/이벤트 룸 각 타입 당 8개/3개/4개의 룸을 제작하였다. 각 룸의 지형, 배경 요소 디자인, 에너미 스폰 위치 및 등장 종류 지정을 통해 플레이어가 다양한 룸 구조를 경험하며 재미를 느낄 수 있게 하였다. 또한, 보상 룸과 이벤트 룸에서 등장할 이벤트들을 구상하고 구현하였다.
 
 주요 이슈 및 해결 :
 
-게임의 기존 데이터 구조에서는 장착 무기, 해킹 데이터를 Scriptable Object로 관리하였는데, SaveData에 Scriptable Object가 포함될 시 데이터의 직렬화가 올바르게 되지 않는 문제가 발생하였다. 원인은 Unity 내부에서 Scriptable Object를 처리하는 구조에 있었다. Unity에서는 Scriptable Object로 사전에 정의한 데이터를, 게임 실행시 인스턴스로 생성하여 게임 실행동안 유지한다. 따라서 이렇게 생성된 인스턴스를 SaveData에 포함하여 저장하면 임시 인스턴스 ID가 저장되었고, 게임 재실행 후 데이터를 로드하려고 하면 현재 존재하는 Scriptable Object의 인스턴스의 ID와 SaveData에 포함된 인스턴스의 ID가 일치하지 않아 로드에 실패하였다. 이러한 문제를 해결하기 위해 Scriptable Object를 직접 저장하지 않고 무기, 해킹 ID를 대신 저장하였으며, 구조적인 데이터를 저장해야 하는 경우 일반 클래스를 선언해서 사용하는 방식으로 대체하였다.
-
-<h3>일시정지, 설정 시스템 및 UI 구현</h3>
-
-![image](https://github.com/user-attachments/assets/6a345298-225a-4b10-abc7-4389c089ffed)
-![image](https://github.com/user-attachments/assets/b6f0096a-aed7-44ee-8e64-ea7d0780437b)
-
-게임 중 ESC 키를 눌러 게임을 일시 정지하고, 게임 저장/설정/탐사 포기(탐사 중일시)/게임 종료를 선택할 수 있게 구현하였다. 또한 설정 UI에서 배경음/효과음의 소리 크기를 각각 지정하고 저장할 수 있게 구현하였다.
-
-주요 이슈 및 해결 :
-
-처음에 게임의 Time.timescale(시간의 진행 속도를 지정하는 Unity의 변수, 0 <= value <= 1)을 0으로 변경하는 방식으로 일시정지를 구현하였는데, 이에 따라 동적으로 나타낸 UI(좌우로 펼쳐지는 애니메이션이 포함된 UI)의 코루틴 처리에서도 동작이 멈춰버리는 문제가 발생하였다. 따라서 timescale에 영향을 받아야 하는 대상과 그렇지 않은 대상을 구분하고, 그렇지 않은 대상에서는 Time.unscaledDeltaTime과 WaitForSecondsRealTime을 사용하여 Time.timescale에 영향을 받지 않고 실제 시간에 따라 작동할 수 있게 설정하여 해결하였다.
+룸의 구조가 비슷하게 반복되면, 플레이어가 지루함을 느낄 것이라는 생각이 들었다. 따라서 Y축과 관련된 요소(사다리, 언덕) 등을 많이 사용하였고, 등장하는 에너미의 종류를 룸의 구조에 따라 다채롭게 지정하였다.
 
 <h3>타이틀 씬 제작</h3>
 
@@ -251,12 +252,11 @@ static 클래스인 SaveSystem를 정의하여 씬의 종류와 관계없이 작
 
 게임의 튜토리얼 씬을 제작하였다. 최초 시작시 플레이어에게 게임의 배경 스토리를 설명하고, 조작 키에 대한 설명과 실제로 해당 키를 사용해야 하는 상황을 부여하여 플레이어가 게임의 기초 조작과 규칙을 쉽게 이해할 수 있게 하였다.
 
-<h3>SoundManager 제작 - 사운드 관리 및 재생 / 에너미 사운드 적용</h3>
+<h3>Parallax background 적용</h3>
 
-![image](https://github.com/user-attachments/assets/a3742ca2-8bdd-4ec9-8afc-956d93a571ff)
+![image](https://github.com/user-attachments/assets/8192ffb6-2bdf-4c15-8212-8f4b3db54742)
 
-SoundManager 컴포넌트를 정의하여 사운드 종류별로 분류하여 관리하고, 재생할 수 있게 구현하였다. 기본이 되는 AudioMixer의 하위 그룹으로 BGM(배경음) 그룹과 SFX(효과음) 그룹을 두고, 기존에 플레이어가 설정 시스템에서 지정한 소리 크기로 각 그룹의 소리 크기를 지정한 뒤 각 사운드를 재생할 수 있게 하였다. 이 구조를 통해 팀원들이 동일한 사운드 재생 방식을 적용하게 하며 게임의 모든 사운드를 관리하였다.
-또한 SoundManager를 이용하여 에너미 사운드/플레이어 피격 사운드/이벤트 사운드를 적용하였다. 에너미 피격/사망 시의 사운드는 공통으로 적용하였고, 에너미 종류별 인지/공격 상황에 대한 사운드를 적용하였다. 이벤트 사운드로는 긍정/부정적 이벤트 발생 시의 사운드를 각각 적용하였다. 이를 통해 플레이어가 더욱 생동감 있는 플레이 경험을 가질 수 있게 했다.
+게임의 배경을 여러 개의 분할된 이미지 레이어로 제작하여, 배경 이미지 위치가 플레이어의 이동에 따라 변화하는 정도를 각 레이어마다 다르게 하였다. 멀리 있는 배경은 느리게, 가까이 있는 배경은 빠르게 움직이게 하여 배경의 입체감과 생동감을 주었다.
 
 <h3>구현 내용 병합 및 버그 수정</h3>
 
