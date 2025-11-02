@@ -69,29 +69,34 @@
 
 ## 🔷 담당 파트
 
-### 🔹 RoomManager
+### 🔹 Room / RoomManager
 
 <img src="https://github.com/user-attachments/assets/67c96f93-aac0-4d80-88e4-098ac0edb883">
-
+<br>
 <img src="https://github.com/user-attachments/assets/a5d04a4f-f496-4978-bdb5-98f14e53c7bb">
 <img src="https://github.com/user-attachments/assets/6816eb3d-b77b-4aa2-b6c6-aa2e9088d256">
 
 <img src="https://github.com/user-attachments/assets/6d928d5f-2625-4358-8910-7bc92f8c8dae" width="60%">
 
 
-- **룸 프리팹 구조 설계** (**Prefab Variant**를 이용한 다중 상속 구조)  
-- **룸 이동, 포탈, 선택 시스템 및 UI 구현**  
-- Enemy / Reward / Event의 세가지 룸 타입 중, 지정된 확률에 따라 무작위로 선택지 제공  
+- **룸 프리팹 구조 설계** (**Prefab Variant**를 이용한 다중 상속 구조 -> 룸 타입별 기초 형태 관리 및 변경 일괄 적용)  
+- **룸 이동, 선택 시스템을 관리하는 RoomManager 제작 / UI 구현**  
+- Enemy / Reward / Event의 세가지 룸 타입 중, 지정된 확률에 따라 무작위로 선택지 제공
 
 ### 🔹 EnemyManager
 
 <img src="https://github.com/user-attachments/assets/079e1fc8-e08a-49e8-9dde-9a5716dec923" width="30%">
 <img src="https://github.com/user-attachments/assets/572bbaf9-b658-479d-abc1-f8d78777c35d" width="50%">
 
-<img src="https://github.com/user-attachments/assets/1f827d01-b3c4-4c18-94a2-c268fa498b3a">
+<img src="https://github.com/user-attachments/assets/f06fb062-e0c4-4ece-bd1d-0291e1036604" width="30%">
+<img src="https://github.com/user-attachments/assets/41e0ca85-818a-438d-94e1-5fe2d12da50a" width="30%">
+<img src="https://github.com/user-attachments/assets/7af85165-3279-46a4-aee5-c6d126b59973" width="30%">
+<img src="https://github.com/user-attachments/assets/cc9c4ad3-a32c-40b5-9dc2-2c5d6446a631" width="30%">
+<img src="https://github.com/user-attachments/assets/55c09614-7930-4cc5-a434-9b94000757b1" width="30%">
+<img src="https://github.com/user-attachments/assets/a9bffe51-3c18-4e29-a7c2-59b1471290b7" width="30%">
 
 - **ScriptableObject 기반 에너미 데이터 구조화**  
-- **에너미 패턴 구현** (돌진, 점프, 자폭, 은신형 원거리)  
+- **에너미 패턴 6종 구현** (기본, 원거리, 돌진, 점프, 자폭, 터렛)  
 - **스폰 처리를 위한 EnemyManager 구현** / 룸 클리어 조건 연동
 
 ### 🔹 GameManager (Singleton)
