@@ -11,7 +11,10 @@
 
 **🔹 위키 :** [캡크래프트 프로젝트 위키](http://cscp2.sogang.ac.kr/CSE4186/index.php/%EC%BA%A1%ED%81%AC%EB%9E%98%ED%94%84%ED%8A%B8)  
 
-**🔹 STOVE 스토어 :** [https://store.onstove.com/ko/games/101515](https://store.onstove.com/ko/games/101515)  
+**🔹 STOVE 스토어 :** [https://store.onstove.com/ko/games/101515](https://store.onstove.com/ko/games/101515)
+
+<img src="https://github.com/user-attachments/assets/e00f3812-cc50-4b7a-a2b4-2434726cd65a" width="65%">
+
 
 **🔹 전체 플레이 영상 :** [https://youtu.be/UVl7yaMmQIA?si=dm9YSfIsRDznCu49](https://youtu.be/UVl7yaMmQIA?si=dm9YSfIsRDznCu49)
 
@@ -55,6 +58,8 @@
 | **Version Control** | Git / GitHub |
 | **Build Target** | Windows (.exe) -> STOVE 스토어 및 itch.io 배포 |
 | **협업 툴** | Trello, Discord |
+<img src="https://github.com/user-attachments/assets/498e76fd-5608-44c6-b42e-d0f154b2499e" width="65%">
+
 
 ## 🔷 프로젝트 세부사항
 
