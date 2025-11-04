@@ -74,7 +74,7 @@
 
 ## 🔷 담당 파트
 
-### 🔹 Room 시스템
+### 🔹 Room(스테이지) 시스템
 
 <img src="https://github.com/user-attachments/assets/67c96f93-aac0-4d80-88e4-098ac0edb883">
 <br>
